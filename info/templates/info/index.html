@@ -1,0 +1,11 @@
+<h2>Meet Our Office Staff!</h2>
+
+{% if office_staff %}
+    <ul>
+        {% for staff in office_staff %}
+            <li><a href="/info/{{ staff.id }}">{{ staff.name }}</a></li>
+        {% endfor %}
+    </ul>
+{% else %}
+    <h3>There is no staff saved</h3>
+{% endif %}
