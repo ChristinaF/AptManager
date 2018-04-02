@@ -3,6 +3,6 @@ from . import views
 
 
 urlpatterns = [
-    # /info/
+    # /homepage/
     url(r'^$', views.index, name='index'),
     ]
