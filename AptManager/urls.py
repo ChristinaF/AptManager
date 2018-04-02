@@ -7,10 +7,10 @@ from . import views
 
 
 urlpatterns = [
-    url(r'^$', views.index, name='index'),
+    url(r'', include('homepage.urls', namespace='home')),
+    #url(r'^$', views.index, name='index'),
     url(r'^admin/', admin.site.urls),
-    url(r'^curr_res/', include('curr_res.urls')),
-    url(r'^info/', include('info.urls')),
-    url(r'^homepage/', include('homepage.urls')),
-    url(r'^prosp_res/', include('prosp_res.urls')),
+    url(r'^curr_res/', include('curr_res.urls', namespace='curr_res')),
+    url(r'^info/', include('info.urls', namespace='info')),
+    url(r'^prosp_res/', include('prosp_res.urls', namespace='prosp_res')),
 ]
