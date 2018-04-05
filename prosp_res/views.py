@@ -3,4 +3,5 @@ from django.shortcuts import loader
 
 
 def index(request):
-    return HttpResponse("<h1>Welcome to the Prospective Tenant Page</h1>")
+    template = loader.get_template('prosp_res/base_prosp_res.html')
+    return HttpResponse(template.render(request))
