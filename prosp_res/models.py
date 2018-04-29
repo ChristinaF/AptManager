@@ -10,5 +10,5 @@ class Tenant_prospect(models.Model):
     city = models.CharField(max_length=30)
     phone = models.CharField(max_length=50)
 
-    def _str_(self):
+    def __str__(self):
         return self.first_name + "\n" + self.last_name
