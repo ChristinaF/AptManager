@@ -3,9 +3,9 @@ from django.shortcuts import loader
 from .models import OfficeStaff
 
 
-def index(request):
+def info_main(request):
     office_staff = OfficeStaff.objects.all()
-    template = loader.get_template('info/base_info.html')
+    template = loader.get_template('info/info_main.html')
     return HttpResponse(template.render({'office_staff': office_staff}, request))
 
 

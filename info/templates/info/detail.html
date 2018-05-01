@@ -1,5 +1,18 @@
+{% extends 'info/base.html' %}
+
+{% block body %}
+
+<div class="col-sm-12 col-md-5">
+            <div class="panel panel-default">
+                <div class="panel-body">
+
 <h2> Office Staff Details </h2>
 
 <h3>Name: {{ member.name}}</h3>
 <h3>Role: {{ member.role}}</h3>
 <h3>Contact: {{ member.contact}}</h3>
+
+                </div>
+            </div>
+</div>
+{% endblock %}

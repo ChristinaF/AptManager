@@ -1,0 +1,45 @@
+{% extends 'info/base.html' %}
+
+{% block body %}
+
+<div class="col-sm-12 col-md-5">
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <h2>Welcome to Hilltop Apartments!</h2>
+
+<h2>Management Office Hours</h2>
+<h3>Mon-Fri  8:30 am to 5:30 pm</h3>
+<h3>Sat      9:00 am to 12:00 pm</h3>
+<h3>Sun      Closed</h3>
+
+                    <h2>Meet Our Office Staff:</h2>
+
+{% if office_staff %}
+    <ul>
+        {% for staff in office_staff %}
+            <li><h4><a href="/info/{{ staff.id }}">{{ staff.name }}</a></h4></li>
+        {% endfor %}
+    </ul>
+{% else %}
+    <h3>There is no staff saved</h3>
+{% endif %}
+                </div>
+            </div>
+        </div>
+
+<div class="col-sm-12 col-md-5">
+            <div class="panel panel-default">
+                <div class="panel-body">
+
+                    <h2>The Hilltop Clubhouse Gym and Event Center: </h2>
+                    <h3>Available for residents and their guests</h3>
+
+<h3>Hours:</h3>
+<h3>Mon-Fri  6:00 am to 9:30 pm</h3>
+<h3>Sat-Sun  7:00 am to 8:00 pm</h3>
+
+                </div>
+            </div>
+        </div>
+
+{% endblock %}
