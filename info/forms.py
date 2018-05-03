@@ -8,4 +8,4 @@ class ReservationForm(forms.ModelForm):
 
     class Meta:
         model = ClubhouseReservation
-        fields = ['tenant_name', 'date', 'time' , 'event']
+        fields = ['tenant_name', 'date', 'time', 'event']

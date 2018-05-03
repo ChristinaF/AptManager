@@ -3,7 +3,7 @@ from django.shortcuts import loader
 from django.contrib.auth import authenticate, login
 from django.contrib.auth import logout
 from django.shortcuts import render
-from .forms import UserForm
+from .forms import UserForm, PaymentForm
 from .models import Tenant, Apartment, Payment
 
 
@@ -41,14 +41,24 @@ def info(request):
     if not request.user.is_authenticated():
         return render(request, 'curr_res/login.html')
     else:
-        template = loader.get_template('curr_res/info.html')
-        return HttpResponse(template.render(request))
+        information = Payment.objects
+        #template = loader.get_template('curr_res/info.html')
+        return render(request, 'curr_res/info.html', {'information': information})
 
 
 
-def payment(request):
-    template = loader.get_template('curr_res/payment.html')
-    return HttpResponse(template.render(request))
+def make_payment(request):
+    form = PaymentForm(request.POST or None, request.FILES or None)
+    if form.is_valid():
+        payment = form.save(commit=False)
+        payment.tenant_id = request.user
+        payment.save()
+        return render(request, 'curr_res/curr_res_home.html', {'payment': payment})
+    context = {"form": form, }
+    return render(request, 'curr_res/pay_rent.html', context)
+
+
+
 
 
 def resident_home(request):

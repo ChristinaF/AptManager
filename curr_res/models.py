@@ -33,6 +33,7 @@ class Payment(models.Model):
     due_date = models.DateField()
     amount_paid = models.IntegerField()
 
-
+    def __str__(self):
+        return self.tenant.first_name + "  " + self.tenant.last_name
 
 

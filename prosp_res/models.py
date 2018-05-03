@@ -4,6 +4,8 @@ from django.db import models
 
 
 class Tenant_prospect(models.Model):
+    class Meta:
+        verbose_name = 'Applicant'
     first_name = models.CharField(max_length=30)
     last_name = models.CharField(max_length=30)
     address = models.CharField(max_length=30)
